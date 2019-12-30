@@ -31,17 +31,6 @@ nav {
     height: 59px;
 }
 
-.menu_drawer {
-    width: 100%;
-    position: fixed;
-    height: 100vh;
-    overflow: hidden;
-    transition: all 1s;
-    background-color: #5C2535;
-    top: 70px;
-}
-
-
 @media screen and (max-width: 995px) {
 
     nav {
@@ -78,7 +67,6 @@ nav {
 
 @media screen and (max-width: 730px) {
     nav {
-
         .left, .right {
             display: none;
         }

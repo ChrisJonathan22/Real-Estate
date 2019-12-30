@@ -3,6 +3,8 @@ import React , { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Logo  from '../../Assets/logo.png';
 import './Navbar.scss';
+import MenuDrawer from '../MenuDrawer/MenuDrawer';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Navbar extends Component {
   constructor () {
@@ -44,7 +46,14 @@ class Navbar extends Component {
                     <div className="mobile_menu_icon"><i class="fas fa-bars" onClick={this.showDrawer}></i></div>
                   </div>
                 </nav>
-                { show ?  <div className="menu_drawer"></div> : null}
+                { show ?
+                    <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={1500}
+                    transitionLeaveTimeout={1300}>
+                      <MenuDrawer />
+                    </ReactCSSTransitionGroup>
+                    : 
+                    null 
+                }
             </div>
     );
   }
