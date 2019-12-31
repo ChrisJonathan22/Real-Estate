@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import Logo  from '../../Assets/logo.png';
 import './Navbar.scss';
 import MenuDrawer from '../MenuDrawer/MenuDrawer';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import { CSSTransition } from 'react-transition-group';
 
 class Navbar extends Component {
   constructor () {
@@ -39,9 +37,10 @@ class Navbar extends Component {
                       <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
                       <li className="nav-item"><Link className="nav-link" to="/info">Useful Info</Link></li>
                     </ul>
-                    <div className="mobile_menu_icon"><i class="fas fa-bars" onClick={this.showDrawer}></i></div>
+                    <div className="mobile_menu_icon"><i className="fas fa-bars" onClick={this.showDrawer}></i></div>
                   </div>
                 </nav>
+                <div className="clear_menu"></div>
               <MenuDrawer action={show} />
             </div>
     );
