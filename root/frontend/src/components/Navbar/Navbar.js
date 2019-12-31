@@ -5,6 +5,7 @@ import Logo  from '../../Assets/logo.png';
 import './Navbar.scss';
 import MenuDrawer from '../MenuDrawer/MenuDrawer';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { CSSTransition } from 'react-transition-group';
 
 class Navbar extends Component {
   constructor () {
@@ -17,12 +18,7 @@ class Navbar extends Component {
 
   showDrawer () {
     let { show } = this.state;
-
-    if (show) {
-      this.setState({ show: false });
-    } else {
-      this.setState({ show: true });
-    }
+    this.setState({ show: !show });
   }
 
   render () {
@@ -46,14 +42,7 @@ class Navbar extends Component {
                     <div className="mobile_menu_icon"><i class="fas fa-bars" onClick={this.showDrawer}></i></div>
                   </div>
                 </nav>
-                { show ?
-                    <ReactCSSTransitionGroup transitionName="example" transitionEnterTimeout={1500}
-                    transitionLeaveTimeout={1300}>
-                      <MenuDrawer />
-                    </ReactCSSTransitionGroup>
-                    : 
-                    null 
-                }
+              <MenuDrawer action={show} />
             </div>
     );
   }

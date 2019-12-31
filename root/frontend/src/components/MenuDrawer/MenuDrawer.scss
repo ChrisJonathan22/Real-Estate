@@ -1,9 +1,30 @@
 .menu_drawer {
     width: 100%;
+    width: 0;
     position: fixed;
     height: 100vh;
     overflow: hidden;
     transition: all 1s;
     background-color: #5C2535;
     top: 70px;
+
+    ul {
+        list-style: none;
+        width: 100%;
+        padding-left: 0;
+        padding-top: 30px;
+        white-space: nowrap;
+
+        li {
+            text-align: center;
+            a {
+                color: #FFFFFF;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.true {
+    width: 100%;
 }
