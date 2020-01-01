@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 export default class Contact extends Component {
     render() {
         return (
-            <div>
+            <Fragment>
                 <h1>Contact</h1>
-            </div>
+            </Fragment>
         )
     }
 }

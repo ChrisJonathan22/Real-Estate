@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import './MenuDrawer.scss';
 import { Link } from 'react-router-dom';
 
 export default function MenuDrawer(props) {
     let { action } = props;
     return (
-        <div>
+        <Fragment>
             <div className={`menu_drawer ${action}`}>
                 <ul>
                     <li className="nav-item"><Link className="nav-link" exact to="/">Home</Link></li>
@@ -16,6 +17,11 @@ export default function MenuDrawer(props) {
                     <li className="nav-item"><Link className="nav-link" to="/info">Useful Info</Link></li>
                 </ul>
             </div>
-        </div>
+        </Fragment>
     )
 }
+
+
+MenuDrawer.propTypes = {
+    action: PropTypes.bool
+};

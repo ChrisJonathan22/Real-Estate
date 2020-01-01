@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 export default class Sales extends Component {
     render() {
         return (
-            <div>
+            <Fragment>
                 <h1>Sales</h1>
-            </div>
+            </Fragment>
         )
     }
 }

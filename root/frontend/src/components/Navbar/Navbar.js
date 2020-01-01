@@ -1,5 +1,5 @@
   
-import React , { Component } from 'react';
+import React , { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Logo  from '../../Assets/logo.png';
 import './Navbar.scss';
@@ -22,7 +22,7 @@ class Navbar extends Component {
   render () {
     let { show } = this.state;
     return (
-            <div>
+            <Fragment>
                 <nav className="navbar navbar-expand-x1 navbar-light @@classList">
                   <div className="container">
                     <ul className="left">
@@ -42,7 +42,7 @@ class Navbar extends Component {
                 </nav>
                 <div className="clear_menu"></div>
               <MenuDrawer action={show} />
-            </div>
+            </Fragment>
     );
   }
 }
