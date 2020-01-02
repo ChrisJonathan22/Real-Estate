@@ -25,7 +25,16 @@ export default class SearchForm extends Component {
                         <input name="s" type="text" placeholder="Search..." className="search_special" />
                         <input type="submit" value="Search" />
                     </div>
-                    
+                    <div className="search_options">
+                        <div className="option_control dual_option">
+                            <label for="min-price">Price range (&pound;)</label>
+                            <div className="SumoSelect sumo_min_price" tabIndex="0" role="button" aria-expanded="false">
+                                
+                            </div>
+                        </div>
+                        <div className="option_control dual_option"></div>
+
+                    </div>
                 </div>
             </Fragment>
         )
