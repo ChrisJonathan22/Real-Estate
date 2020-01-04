@@ -5,7 +5,11 @@ export default class SearchForm extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            type: "sales"
+            type: "sales",
+            minPrice: '',
+            maxPrice: '',
+            minBed: '',
+            maxBed: '' 
         }
     }
     render() {
@@ -90,6 +94,67 @@ export default class SearchForm extends Component {
                                 }    
                             </div>
                         </div>
+
+                        <div className="option_control dual_option">
+                            <label for="min-price">Bedrooms</label>
+                            <div className="SumoSelect sumo_min_price" tabIndex="0" role="button" aria-expanded="false">
+                                <select className="select_sm SumoUnder" id="min_price" tabindex="1">
+                                    <option className="bprice" value="0" selected="">No Min</option>
+                                    <option className="bprice" value="1">1</option>
+                                    <option className="bprice" value="2">2</option>
+                                    <option className="bprice" value="3">3</option>
+                                    <option className="bprice" value="4">4</option>
+                                    <option className="bprice" value="5">5</option>
+                                    <option className="bprice" value="6">6</option>
+                                    <option className="bprice" value="7">7</option>
+                                    <option className="bprice" value="8">8</option>
+                                    <option className="bprice" value="9">9</option>
+                                </select>
+                            </div>
+                            <div class="SumoSelect sumo_max-price" tabindex="0" role="button" aria-expanded="true">
+                                <select className="select_sm SumoUnder" id="min_price" tabindex="1">
+                                    <option className="rprice" value="0" selected="">No Max</option>
+                                    <option className="rprice" value="2">2</option>
+                                    <option className="rprice" value="3">3</option>
+                                    <option className="rprice" value="4">4</option>
+                                    <option className="rprice" value="5">5</option>
+                                    <option className="rprice" value="6">6</option>
+                                    <option className="rprice" value="7">7</option>
+                                    <option className="rprice" value="8">8</option>
+                                    <option className="rprice" value="9">9</option>
+                                    <option className="rprice" value="10">10</option>
+                                </select>
+                            </div>
+                            </div>
+
+
+                            <div class="option_control areas">
+                                <label for="areas">Areas</label>
+                                <div class="SumoSelect sumo_areas" tabindex="0" role="button" aria-expanded="true">
+                                    <select class="select-lg SumoUnder" id="areas" name="areas" tabindex="-1">
+                                        <option value="" selected="">All</option>
+                                        <option value="aldenham">Aldenham</option>
+                                        <option value="arkley">Arkley</option>
+                                        <option value="barnet">Barnet</option>
+                                        <option value="borehamwood">Borehamwood</option>
+                                        <option value="east-finchley">East Finchley</option>
+                                        <option value="elstree">Elstree</option>
+                                        <option value="finchley">Finchley</option>
+                                        <option value="hadley-green">Hadley Green</option>
+                                        <option value="hadley-wood">Hadley Wood</option>
+                                        <option value="hendon">Hendon</option>
+                                        <option value="mill-hill">Mill Hill</option>
+                                        <option value="north-finchley">North Finchley</option>
+                                        <option value="oakleigh-park">Oakleigh Park</option>
+                                        <option value="other">Other</option>
+                                        <option value="radlett">Radlett</option>
+                                        <option value="totteridge">Totteridge</option>
+                                        <option value="west-finchley">West Finchley</option>
+                                        <option value="whetstone">Whetstone</option>
+                                        <option value="woodside-park">Woodside Park</option>
+                                    </select>
+                                </div>
+                            </div>
                         <div className="option_control dual_option"></div>
 
                     </div>
