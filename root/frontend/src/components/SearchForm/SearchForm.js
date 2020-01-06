@@ -1,23 +1,29 @@
 import React, { Component, Fragment } from 'react';
 import './SearchForm.scss';
+import { getAllProperties } from '../../tools/functions';
+import { ALLPROPENDPOINT } from '../../tools/API';
 
 export default class SearchForm extends Component {
     constructor (props) {
         super(props);
         this.state = {
             type: "sales",
-            minPrice: '',
-            maxPrice: '',
-            minBed: '',
-            maxBed: '' ,
-            area: '',
-            propertyType: '',
+            minPrice: 0,
+            maxPrice: 0,
+            minBed: 0,
+            maxBed: 0 ,
+            area: 'all',
+            propertyType: 'all',
             sorting: 'mostRecent'
         }
 
         this.getSearchInfo = this.getSearchInfo.bind(this);
     }
 
+
+    componentDidMount () {
+        getAllProperties(ALLPROPENDPOINT);
+    }
 
 
     getSearchInfo (e) {
@@ -44,6 +50,9 @@ export default class SearchForm extends Component {
             case 'property_types':
                 this.setState({ propertyType:  value });
                 break;
+            case 'sort_by':
+                this.setState({ sorting: value });
+                break;    
             default:    
         }
     }
@@ -63,7 +72,7 @@ export default class SearchForm extends Component {
                             <input type="radio" name="listings" id="radio_rent" value="rent" />
                             <label htmlFor="radio_rent">Lettings</label>
                         </div>
-                        <input name="s" type="text" placeholder="Search..." className="search_special" />
+                        {/* <input name="s" type="text" placeholder="Search..." className="search_special" /> */}
                         <input type="submit" value="Search" />
                     </div>
                     <div className="search_options">
@@ -102,7 +111,7 @@ export default class SearchForm extends Component {
                             <div className="SumoSelect sumo_max-price" tabindex="0" role="button" aria-expanded="true">
                                 { type === "sales" ?
                                     <select className="select-sm SumoUnder" id="max_price" name="max-price" tabindex="-1" onChange={this.getSearchInfo}>
-                                        <option className="bprice" value="999999999" defaultValue>Max Price</option>
+                                        <option className="bprice" value="0" defaultValue>Max Price</option>
                                         <option className="bprice" value="500000">£500k</option>
                                         <option className="bprice" value="750000">£750k</option>
                                         <option className="bprice" value="1000000">£1M</option>
@@ -116,7 +125,7 @@ export default class SearchForm extends Component {
                                     </select>
                                 :    
                                     <select className="select-sm SumoUnder" id="max_price" name="max-price" tabindex="-1" onChange={this.getSearchInfo}>
-                                        <option className="rprice" value="999999999" defaultValue>Max PCM</option>
+                                        <option className="rprice" value="0" defaultValue>Max PCM</option>
                                         <option className="rprice" value="1000">£1k</option>
                                         <option className="rprice" value="2000">£2k</option>
                                         <option className="rprice" value="3000">£3k</option>
@@ -210,8 +219,8 @@ export default class SearchForm extends Component {
                             <div className="option_control dual_option sortby">
                                 <label htmlFor="min-price">Sort by</label>
                                 <div className="SumoSelect sumo_sort_by" tabindex="0" role="button" aria-expanded="false">
-                                    <select className="select-sm SumoUnder" id="sort_by" name="sort_by" tabindex="-1">
-                                        <option value="date">Most recent</option>
+                                    <select className="select-sm SumoUnder" id="sort_by" name="sort_by" tabindex="-1" onChange={this.getSearchInfo}>
+                                        <option value="mostRecent">Most recent</option>
                                         <option value="price-desc">Price (highest)</option>
                                         <option value="price-asc" defaultValue>Price (lowest)</option>
                                     </select>
