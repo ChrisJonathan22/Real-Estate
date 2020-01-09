@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 let propertySchema = new mongoose.Schema({ 
     image: String,
     price: Number,
@@ -7,3 +8,7 @@ let propertySchema = new mongoose.Schema({
     propertyType: String,
     contractType: String
 });
+
+const property = mongoose.model('property', propertySchema);
+
+module.exports.property = property;  
