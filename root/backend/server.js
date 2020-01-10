@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 5000;
 const DB = require('./db').connect;
-const MODEL = require('./schema').property;
+const model = require('./schema').property;
 const fs = require('fs');
 
 app.use(bodyParser.json({ limit: '15mb', extended: true }));
@@ -28,10 +28,17 @@ app.get('/', (req, res) => {
     let base64;
     fs.readFile('../frontend/src/Assets/home_hero.jpg', (err,file) => {
         base64 = file.toString('base64');
-        res.json({ message: "Request successful", imageString: base64 });
+        // res.json({ message: "Request successful", imageString: base64 });
     });
-    // let property = new MODEL({ image:  base64})
-    // res.json({ message: "Request successful", imageString: base64 ? 'image' : null });
+    let property = new model({ image:  base64, price: 100000, bedroom: 3, location: "Dunston", propertyType: "Flat", contractType: 'Let' });
+    property.save((err, model) => {
+        if (err) console.error(err);
+        else {
+            console.log('Property successfully added!!!');
+            console.log(model);
+        }
+    })
+    res.json({ message: "Request successful" });
 });
 
 app.listen(PORT, console.log(`Server started on port ${PORT}`));

@@ -9,6 +9,6 @@ let propertySchema = new mongoose.Schema({
     contractType: String
 });
 
-const property = mongoose.model('property', propertySchema);
+const property = mongoose.model('properties', propertySchema);
 
 module.exports.property = property;  
