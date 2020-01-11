@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://chris:chris22@ds211774.mlab.com:11774/realestate', { useUnifiedTopology: true });
+mongoose.connect('mongodb://chris:chris22@ds135335.mlab.com:35335/realestate', { useUnifiedTopology: true });
 
 const connect = mongoose.connection;   
 

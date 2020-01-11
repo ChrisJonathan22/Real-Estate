@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const PORT = 5000;
-const DB = require('./db').connect;
-const model = require('./schema').property;
+const { connect } = require('./db');
+const { property } = require('./schema');
 const fs = require('fs');
 
 app.use(bodyParser.json({ limit: '15mb', extended: true }));
@@ -19,25 +19,26 @@ app.use((req, res, next) => {   // Allow cross origin requests.
     next();
 });
 
-DB.on('error', console.error.bind(console, 'connection error:'));
-DB.once('open', () => {
+connect.on('error', console.error.bind(console, 'connection error:'));
+connect.once('open', () => {
     console.log('Database connection successful');
 });
 
-app.get('/', (req, res) => {
+app.get('/properties', (req, res) => {
     let base64;
-    fs.readFile('../frontend/src/Assets/home_hero.jpg', (err,file) => {
+    let image = fs.readFile('../frontend/src/Assets/home_hero.jpg', (err,file) => {
         base64 = file.toString('base64');
-        // res.json({ message: "Request successful", imageString: base64 });
+     
+        let newProperty = new property({ price: 100000, bedroom: 3, location: "Dunston", propertyType: "Flat", contractType: 'Let', image: base64 });
+        newProperty.save((err, property) => {
+            if (err) console.error(error);
+            else {
+                console.log('Property successfully added!!!');
+                console.log(newProperty);
+            }
+        });
     });
-    let property = new model({ image:  base64, price: 100000, bedroom: 3, location: "Dunston", propertyType: "Flat", contractType: 'Let' });
-    property.save((err, model) => {
-        if (err) console.error(err);
-        else {
-            console.log('Property successfully added!!!');
-            console.log(model);
-        }
-    })
+   
     res.json({ message: "Request successful" });
 });
 
