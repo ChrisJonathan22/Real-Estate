@@ -10,6 +10,13 @@
     padding: 1em 0;
     background-color: $white;
 
+    @media (max-width: 1050px) {
+
+        .left, .navbar-brand, .right {
+            display: none;
+        }
+    }
+
     .r__container {
         @include flexbox;
         @include align-items(baseline);
@@ -17,10 +24,22 @@
 
     .text_logo, .mobile_menu_icon {
         display: none;
+
+        @media (max-width: 1050px) {
+            display: block;
+        }
     }
 
     .text_logo {
         color: $purple;
+        font-size: 2em;
+    }
+
+    .mobile_menu_icon {
+        font-size: 1em;
+        position: absolute;
+        right: 1em;
+        top: 20px;
     }
 
     .left {
@@ -32,16 +51,20 @@
         a {
             color: $purple;
             position: relative;
-    
-            &:hover {
 
-                &:before {
-                    content: "";
-                    width: 1em;
+            &:before {
+                content: "";
+                    width: 0px;
                     height: 2px;
                     background-color: $purple;
                     position: absolute;
                     bottom: 0;
+                    @include transition(width .5s);
+            }
+    
+            &:hover {
+                &:before {
+                    width: 30px;
                 }
             }
         }
@@ -50,6 +73,10 @@
 
 .clear_menu {
     height: 122px;
+
+    @media (max-width: 1050px) {
+        height: 57px;
+    }
 }
 
 // @media screen and (max-width: 995px) {
