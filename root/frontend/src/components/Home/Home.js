@@ -1,16 +1,10 @@
-import React, { Component, Fragment } from 'react';
-import './Home.scss';
-import hero_image from '../../Assets/home_hero.jpg';
-import SearchForm from '../SearchForm/SearchForm';
+import React, { Fragment } from 'react';
+import HomeHero from '../HomeHero/HomeHero';
 
-export default class Home extends Component {
-    render() {
-        return (
-            <Fragment>
-                <div className="hero_image" style={{backgroundImage: `url(${hero_image})`}}>
-                    <SearchForm />
-                </div>
-            </Fragment>
-        )
-    }
-}
+export default function Home () {
+    return (
+        <Fragment>
+            <HomeHero />
+        </Fragment>
+    )
+};
