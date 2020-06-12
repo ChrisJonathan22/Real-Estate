@@ -1,7 +1,14 @@
+@import "../mixins.scss";
+
 .hero_image {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 650px;
+    padding: 20em 0;
     position: relative;
+
+
+    @include respond-above(xs) {
+        padding: 10em 0;
+    }
 }

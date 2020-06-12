@@ -1,12 +1,15 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
 .menu_drawer {
-    width: 100%;
-    width: 0;
     position: fixed;
+    z-index: 1;
+    top: 82px;
+    width: 0;
     height: 100vh;
     overflow: hidden;
-    transition: all 1s;
-    background-color: #5C2535;
-    top: 70px;
+    @include transition(all .5s);
+    background-color: $purple;
 
     ul {
         list-style: none;
@@ -18,7 +21,7 @@
         li {
             text-align: center;
             a {
-                color: #FFFFFF;
+                color: $white;
                 text-transform: uppercase;
             }
         }
