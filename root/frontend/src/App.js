@@ -7,7 +7,7 @@ import Lettings from './components/Lettings/Lettings';
 import NewHomes from './components/NewHomes/NewHomes';
 import Contact from './components/Contact/Contact';
 import Info from './components/Info/Info';
-// import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
           {/* <Route exact path = '/property' component = { Property } /> */}
         </Switch>
       </React.Fragment>
+      <Footer />
     </BrowserRouter>
   );
 }
