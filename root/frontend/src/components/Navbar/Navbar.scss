@@ -31,7 +31,7 @@
     }
 
     .text_logo {
-        color: $purple;
+        color: $darkBrown;
         font-size: 2em;
     }
 
@@ -52,14 +52,14 @@
     .nav-item {
         display: inline-block;
         a {
-            color: $purple;
+            color: $darkBrown;
             position: relative;
 
             &:before {
                 content: "";
                     width: 0px;
                     height: 2px;
-                    background-color: $purple;
+                    background-color: $darkBrown;
                     position: absolute;
                     bottom: 0;
                     @include transition(width .5s);
