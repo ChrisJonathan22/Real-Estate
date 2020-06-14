@@ -9,7 +9,7 @@ export default function Footer () {
                 <div className="top__footer">
                     <div className="r__container">
                         <div className="logo__container">
-                            <img src={logo} />
+                            <a href="/"><img alt="logo" src={logo} /></a>
                         </div>
                     </div>
                 </div>
