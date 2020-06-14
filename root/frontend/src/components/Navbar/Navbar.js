@@ -13,14 +13,12 @@ export default function Navbar () {
     <Fragment>
       <nav className="r__navbar">
         <div className="r__container">
-          <ul className="left">
+          <a className="text_logo mx-auto" href="/" >Real Estate</a> 
+          <Link className="navbar-brand mx-auto" exact to="/" ><img alt="logo" src={ Logo } /></Link>
+          <ul className="menu__items">
             <li className="nav-item"><Link className="nav-link" exact to="/">Home</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/sales">Sales</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/lettings">Lettings</Link></li>
-          </ul>
-          <a className="text_logo mx-auto" href="/" >Real Estate</a> 
-          <Link className="navbar-brand mx-auto" exact to="/" ><img alt="logo" src={ Logo } /></Link>
-          <ul className="right">
             <li className="nav-item"><Link className="nav-link" to="/new-homes">New Homes</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
             <li className="nav-item"><Link className="nav-link" to="/info">Useful Info</Link></li>

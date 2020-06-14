@@ -12,14 +12,21 @@
 
     @media (max-width: 1050px) {
 
-        .left, .navbar-brand, .right {
+        .navbar-brand, .menu__items {
             display: none;
         }
     }
 
     .r__container {
-        @include flexbox;
-        @include align-items(baseline);
+        text-align: center;
+    }
+
+    .navbar-brand {
+        margin: 0 !important;
+
+        img {
+            width: 235px;
+        }
     }
 
     .text_logo, .mobile_menu_icon {
@@ -45,8 +52,8 @@
         }
     }
 
-    .left {
-        padding: 0 40px 0 0;
+    .menu__items {
+        padding: 0;
     }
 
     .nav-item {
@@ -75,9 +82,9 @@
 }
 
 .clear_menu {
-    height: 122px;
+    height: 161px;
 
     @media (max-width: 1050px) {
-        height: 83px;
+        height: 80px;
     }
 }
