@@ -8,17 +8,53 @@ footer {
         .logo__container {
             text-align: center;
             padding-top: 2em;
+
+            img {
+                width: 235px;
+            }
+        }
+
+        .social__container {
+            text-align: center;
+
+            .icons {
+                display: inline-block;
+                padding: 1em;
+
+                a {
+                    font-size: 2em;
+                    color: $darkBrown;
+                    @include transition(color .3s);
+
+                    &:hover {
+                        color: $lightBrown;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .address__container {
+            @include flexbox;
+            @include flex-wrap(wrap);
+            @include justify-content(space-around);
+            padding: 2em 0;
+
+            .left__address, .right__address {
+                display: inline-block;
+            }
         }
     }
 
     .bottom__footer {
+        background-color: $lightBrown;
+
         .bottom__footer--container {
             @include flexbox;
             @include flex-wrap(wrap);
             @include justify-content(center);
             @include align-items(center);
             padding: 1em;
-            background-color: $lightBrown;
 
             p {
                 margin: 0;
