@@ -32,8 +32,8 @@ export default function Footer () {
                                 <p>1 Long Street</p>
                                 <p>Gateshead</p>
                                 <p>N11 1XX</p>
-                                <p>Tel: <a href="tel:02056786380">020 5678 6380</a></p>
-                                <p>Email: <a href="mailto:info-gateshead@realestate.co.uk">info-gateshead@realestate.co.uk</a></p>
+                                <p>Tel: <a href="tel:02056786380" className="phone">020 5678 6380</a></p>
+                                <p>Email: <a href="mailto:info-gateshead@realestate.co.uk" className="email">info-gateshead@realestate.co.uk</a></p>
                             </div>
 
                             <div className="left__address">
@@ -42,8 +42,8 @@ export default function Footer () {
                                 <p>1 Short Street</p>
                                 <p>Newcastle</p>
                                 <p>N20 2XX</p>
-                                <p>Tel: <a href="tel:02040786320">020 4078 6320</a></p>
-                                <p>Email: <a href="mailto:info-newcastle@realestate.co.uk">info-newcastle@realestate.co.uk</a></p>
+                                <p>Tel: <a href="tel:02040786320" className="phone">020 4078 6320</a></p>
+                                <p>Email: <a href="mailto:info-newcastle@realestate.co.uk" className="email">info-newcastle@realestate.co.uk</a></p>
                             </div>
                         </div>
                     </div>
