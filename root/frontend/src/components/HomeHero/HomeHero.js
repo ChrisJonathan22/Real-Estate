@@ -7,7 +7,7 @@ export default function Home (){
     return (
         <Fragment>
             <div className="hero_image" style={{backgroundImage: `url(${hero_image})`}}>
-                <SearchForm />
+                <SearchForm page="Home" />
             </div>
         </Fragment>
     )
