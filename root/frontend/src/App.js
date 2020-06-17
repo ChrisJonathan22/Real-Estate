@@ -8,27 +8,31 @@ import NewHomes from './components/NewHomes/NewHomes';
 import Contact from './components/Contact/Contact';
 import Info from './components/Info/Info';
 import Footer from './components/Footer/Footer';
+import { Provider } from 'react-redux';
+import store from './store';
 
 function App() {
   return (
-    <BrowserRouter>
-      <React.Fragment>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path = '/sales' component = {Sales} />
-          <Route exact path = '/lettings' component = {Lettings} />
-          <Route exact path = '/new-homes' component = {NewHomes} />
-          <Route exact path = '/contact' component = {Contact} />
-          <Route exact path = '/info' component = {Info} />
+    <Provider store={ store }>
+      <BrowserRouter>
+        <React.Fragment>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path = '/sales' component = {Sales} />
+            <Route exact path = '/lettings' component = {Lettings} />
+            <Route exact path = '/new-homes' component = {NewHomes} />
+            <Route exact path = '/contact' component = {Contact} />
+            <Route exact path = '/info' component = {Info} />
 
 
-          {/* <Route exact path = '/properties' component = { Properties } /> */}
-          {/* <Route exact path = '/property' component = { Property } /> */}
-        </Switch>
-      </React.Fragment>
-      <Footer />
-    </BrowserRouter>
+            {/* <Route exact path = '/properties' component = { Properties } /> */}
+            {/* <Route exact path = '/property' component = { Property } /> */}
+          </Switch>
+        </React.Fragment>
+        <Footer />
+      </BrowserRouter>
+    </Provider>  
   );
 }
 
