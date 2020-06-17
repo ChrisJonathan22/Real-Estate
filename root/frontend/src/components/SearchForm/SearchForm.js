@@ -111,7 +111,7 @@ export default function SearchForm (props)  {
                                                 return <option className="bprice" value="0" defaultValue>{ value }</option>
                                             } else {
                                                 return (
-                                                <option className="bprice" value={ key }>{ value }</option>
+                                                <option className="bprice" value={ key } key={ key }>{ value }</option>
                                                 );
                                             }
                                         })
@@ -129,7 +129,7 @@ export default function SearchForm (props)  {
                                         minBed.map((num) => {
                                         if (num === "No Min") return <option className="bprice" value="0" defaultValue>{ num }</option>;
                                         else {
-                                        return <option className="bprice" value={ num }>{ num }</option>
+                                        return <option className="bprice" value={ num } key={ num }>{ num }</option>
                                         }
                                         }) 
                                     }
@@ -141,7 +141,7 @@ export default function SearchForm (props)  {
                                         maxBed.map((num) => {
                                         if (num === "No Max") return <option className="bprice" value="0" defaultValue>{ num }</option>;
                                         else {
-                                        return <option className="bprice" value={ num }>{ num }</option>
+                                        return <option className="bprice" value={ num } key={ num }>{ num }</option>
                                         }
                                         }) 
                                     }
@@ -158,7 +158,7 @@ export default function SearchForm (props)  {
                                             areas.map((area) => {
                                             if (area === "All") return <option value="" defaultValue>{ area }</option>
                                             else {
-                                            return <option value={ area }>{ area }</option>;
+                                            return <option value={ area } key={ area }>{ area }</option>;
                                             }
                                             })
                                         }
@@ -174,7 +174,7 @@ export default function SearchForm (props)  {
                                             propertyTypes.map((type) => {
                                                 if (type === "All") return <option value="" defaultValue>{ type }</option>
                                                 else {
-                                                return <option className="property_types-option rent-only" value={ type }>{ type }</option>
+                                                return <option className="property_types-option rent-only" value={ type } key={ type }>{ type }</option>
                                                 }
                                             })
                                         }
