@@ -1,5 +1,6 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+import propertyReducer from './propertyReducer';
 
-export default function rootReducer() {
-
-}
+export default combineReducers({
+    properties: propertyReducer
+});
