@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { FETCH_PROPERTIES, ADD_PROPERTIES, ADD_VALUE } from './actions/types';
 
 const initialState = {};
 
@@ -11,7 +12,5 @@ const store = createStore(
     initialState,
     applyMiddleware(...middleWare)
 );
-
-console.log(store.getState())
 
 export default store;
