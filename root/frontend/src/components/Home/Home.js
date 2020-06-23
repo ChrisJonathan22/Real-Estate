@@ -3,6 +3,7 @@ import HomeHero from '../HomeHero/HomeHero';
 import store from '../../store';
 import { ADD_PROPERTIES } from '../../actions/types';
 import axios from 'axios';
+import ContentSection from '../ContentSection/ContentSection';
 
 export default function Home () {
 
@@ -34,6 +35,7 @@ console.log('This is the store', store.getState());
     return (
         <Fragment>
             <HomeHero />
+            <ContentSection />
         </Fragment>
     )
 };

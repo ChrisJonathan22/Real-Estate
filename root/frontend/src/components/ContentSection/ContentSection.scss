@@ -1,0 +1,32 @@
+@import '../mixins.scss';
+@import '../variables.scss';
+@import '../styles.scss';
+
+.container {
+    text-align: center;
+    
+    &--inner {
+        padding: 15em 0 10em;
+
+        @include respond-above(xs) {
+            padding: 12em 0 5em;
+        }
+
+        &-title {
+            color: $lightBrown;
+            font-size: 38px;
+            letter-spacing: 4.5px;
+
+            @include respond-above(xs) {
+                font-size: 30px;
+                letter-spacing: 2px;
+            }
+        }
+
+        &-content {
+            font-size: 20px;
+            line-height: 30px;
+            padding: 1em 0;
+        }
+    }
+}
