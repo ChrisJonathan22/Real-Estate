@@ -1,5 +1,11 @@
+@import './mixins.scss';
+
 .r__container {
     max-width: 1440px;
     padding: 0 60px;
     margin: 0 auto;
+
+    @include respond-above(xs) {
+        padding: 0 20px;
+    }
 }
