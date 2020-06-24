@@ -1,7 +1,8 @@
 import { FETCH_PROPERTIES, ADD_PROPERTIES, ADD_VALUE } from '../actions/types';
 
 const initialState = {
-    items: []
+    items: [],
+    filter: []
 }
 
 export default function propertyReducer (state = initialState, action) {
