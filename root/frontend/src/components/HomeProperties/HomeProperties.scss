@@ -1,0 +1,45 @@
+@import '../mixins.scss';
+@import '../styles.scss';
+@import '../variables.scss';
+
+.grid {
+    @include flexbox;
+    @include flex-flow(row wrap);
+    @include justify-content(space-between);
+    @include align-items(center);
+
+    &__item {
+        margin: 10px 0;
+        width: calc(33.33% - 15px);
+        height: 240px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @include respond-above(xs) {
+            width: 90%;
+            margin: 10px auto;
+        }
+
+        &:nth-of-type(4),
+        &:nth-of-type(5) {
+            width: calc(50% - 10px);
+            @include respond-above(xs) {
+                width: 90%;
+            }
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.2);
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+    }
+}
