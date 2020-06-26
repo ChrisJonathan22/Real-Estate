@@ -15,11 +15,15 @@ export default function HomeProperties () {
                             style: 'currency',
                             currency: 'GBP'
                         });
+                        const price = formatter.format(property.price);
                         if (index <= 4) return ( 
                             <a href="#" key={ index } className="grid__item" style={{ backgroundImage: `url(data:image/png;base64,${property.image})` }}>
                                 <div className="grid__item-content">
-                                    <h4>{ property.location }</h4>
-                                    <h5>{ formatter.format(property.price) }</h5>
+                                    <div className="grid__item-content__container">
+                                        <h4>{ property.location }</h4>
+                                        <h5>Price: { price }</h5>
+                                        <i class="fa fa-bed" aria-hidden="true"> { property.bedroom }</i>
+                                    </div>
                                 </div>
                             </a> 
                         )
