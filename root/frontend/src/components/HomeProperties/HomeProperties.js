@@ -20,9 +20,9 @@ export default function HomeProperties () {
                             <a href="#" key={ index } className="grid__item" style={{ backgroundImage: `url(data:image/png;base64,${property.image})` }}>
                                 <div className="grid__item-content">
                                     <div className="grid__item-content__container">
-                                        <h4>{ property.location }</h4>
-                                        <h5>Price: { price }</h5>
-                                        <i class="fa fa-bed" aria-hidden="true"> { property.bedroom }</i>
+                                        <h4 className="title">{ property.location }</h4>
+                                        <h5 className="price">Price: { price }</h5>
+                                        <i className="fa fa-bed icon" aria-hidden="true"> { property.bedroom }</i>
                                     </div>
                                 </div>
                             </a> 
