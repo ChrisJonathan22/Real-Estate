@@ -1,16 +1,16 @@
-import React , { Fragment, useState, useEffect } from 'react';
+import React , { Fragment } from 'react';
 import './HomeProperties.scss';
+import Spinner from '../Spinner/Spinner';
 import store from '../../store';
 
 export default function HomeProperties () {
-    console.log("this is the store from home properties", store.getState());
-    const properties = store.getState().properties.items;
-    console.log(properties);
+    let properties = [];
+    properties = store.getState().properties.items;
     return (
         <Fragment>
             <div className="grid r__container">
                 {
-                    properties ? properties.map((property, index) => {
+                    properties.length > 0  ? properties.map((property, index) => {                    
                         const formatter = new Intl.NumberFormat('en-UK', {
                             style: 'currency',
                             currency: 'GBP'
@@ -29,7 +29,7 @@ export default function HomeProperties () {
                         )
                     })
                     :
-                    null    
+                    <Spinner />
                 }
             </div>
         </Fragment>
