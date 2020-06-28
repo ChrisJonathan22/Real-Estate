@@ -4,7 +4,7 @@
 .menu_drawer {
     position: fixed;
     z-index: 1;
-    top: 82px;
+    top: 80px;
     width: 0;
     height: 100vh;
     overflow: hidden;
@@ -26,8 +26,9 @@
             }
         }
     }
+
+    &.true {
+        width: 100%;
+    }
 }
 
-.true {
-    width: 100%;
-}
