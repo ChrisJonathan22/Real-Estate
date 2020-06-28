@@ -5,6 +5,7 @@ import { ADD_PROPERTIES } from '../../actions/types';
 import axios from 'axios';
 import ContentSection from '../ContentSection/ContentSection';
 import HomeProperties from '../HomeProperties/HomeProperties';
+import Form from '../Form/Form';
 
 export default function Home () {
 
@@ -38,6 +39,7 @@ console.log('This is the store', store.getState());
             <HomeHero />
             <ContentSection />
             <HomeProperties />
+            <Form />
         </Fragment>
     )
 };

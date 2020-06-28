@@ -1,0 +1,31 @@
+@import '../variables.scss';
+
+.form--container {
+    padding: 8em 0;
+    text-align: center;
+
+    .title {
+        text-transform: uppercase;
+        letter-spacing: 3.1px;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 37px;
+        color: $lightBrown;
+    }
+
+    &-inner {
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+
+        form {
+            text-align: center;
+            padding: 0 8em;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+        }
+    }
+}
