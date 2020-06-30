@@ -7,10 +7,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding-top: 2em;
+    padding-top: 4em;
     height: 500px;
     position: relative;
-    z-index: -1;
+    z-index: 0;
 
     &:before {
         z-index: -1;
@@ -31,7 +31,41 @@
         letter-spacing: 4.5px;
     }
 
+    .testimonial, .author {
+        color: $white;
+    }
+
     .slick-slider {
-        z-index: 1;
+        min-height: 300px;
+        text-align: center;
+        @include flexbox;
+        @include align-items(center);
+
+        .slick-dots {
+            li {
+                button {
+                    border: 1px $white solid;
+                    border-radius: 50%;
+                    height: 10px;
+                    width: 10px;
+                    
+                    &:hover {
+                        &:before {
+                            content: none;
+                        }
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        background-color: $white;
+
+                        &:before {
+                            content: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
