@@ -6,6 +6,7 @@ import axios from 'axios';
 import ContentSection from '../ContentSection/ContentSection';
 import HomeProperties from '../HomeProperties/HomeProperties';
 import Form from '../Form/Form';
+import Testimonials from '../Testimonials/Testimonials';
 
 export default function Home () {
 
@@ -40,6 +41,7 @@ console.log('This is the store', store.getState());
             <ContentSection />
             <HomeProperties />
             <Form />
+            <Testimonials />
         </Fragment>
     )
 };
