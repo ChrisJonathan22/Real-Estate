@@ -1,3 +1,6 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
 .search_form_container {
     height: 400px;
     width: calc(100% - 40px);
@@ -8,7 +11,7 @@
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     padding: 44px 94px 43px;
-    background-color: #FFFFFF;
+    background-color: $white;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
 
     // display: none;
@@ -24,11 +27,9 @@
     .search_bar {
         margin-top: 27px;
         border-radius: 4px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
+        @include flexbox;
         width: 100%;
+        border: 1px $lightGrey solid;
 
         .radio_control {
             height: 60px;
@@ -54,27 +55,31 @@
                 height: 100%;
                 left: 0;
                 text-align: center;
-                background-color: #92715C;
+                background-color: $lightBrown;
                 text-transform: uppercase;
                 font-size: 12px;
                 line-height: 60px;
                 cursor: pointer;
-                color: #FFFFFF;
+                color: $white;
                 -webkit-transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
                 transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
             }
         }
 
+        .search_special {
+            border: 0;
+        }
+
         input[type="text"] {
             width: calc(100% - 200px);
             line-height: 58px;
-            border-top: 1px solid #979797;
-            border-bottom: 1px solid #979797;
+            // border-top: 1px solid #979797;
+            // border-bottom: 1px solid #979797;
             padding: 0 20px;
-            color: #000000;
+            color: $black;
 
             &::placeholder {
-                color: #000000;
+                color: $black;
             }
         }
 
@@ -86,8 +91,8 @@
             font-size: 16px;
             text-transform: uppercase;
             border: none;
-            color: #FFFFFF;
-            background-color: #281004;
+            color: $white;
+            background-color: $btnBC;
             text-align: center;
             outline: 0;
             -webkit-transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
@@ -97,21 +102,15 @@
     }
 
     .search_options {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-flow: row wrap;
-        flex-flow: row wrap;
+        @include flexbox;
+        @include flex-flow(row wrap);
         width: 100%;
-        // margin-top: 10px;
 
         @media screen and (min-width: 512px) {
             .option_control {
                 width: calc(50% - 5px);
             }
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
+            @include justify-content(space-between);
         }
 
         @media screen and (min-width: 1100px) {
@@ -126,14 +125,9 @@
         }
 
         .dual_option, .areas, .property_type {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-            -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
+            @include flexbox;
+            @include flex-flow(row wrap);
+            @include justify-content(space-between);
 
             label {
                 width: 100%;
@@ -179,7 +173,7 @@
             label {
                 white-space: nowrap;
                 font-weight: 600;
-                color: #281004;
+                color: $btnBC;
                 font-size: 16px;
                 letter-spacing: 1px;
                 line-height: 20px;
