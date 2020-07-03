@@ -182,14 +182,14 @@ export default function SearchForm (props)  {
                                 </div>
                             </div>
 
-                            <div class="option-control checkbox show-for-sell">
+                            <div class="option_control checkbox show-for-sell">
                                 <label for="inc-offer">Include Under Offer</label>
                                 <div class="tickbox">
                                     <input type="checkbox" name="inc-offer" value="true" />
                                 </div>
                             </div>
 
-                            <div class="option-control checkbox show-for-sell">
+                            <div class="option_control checkbox show-for-sell">
                                 <label for="inc-sold">Include Sold</label>
                                 <div class="tickbox">
                                     <input type="checkbox" name="inc-sold" value="true" />
