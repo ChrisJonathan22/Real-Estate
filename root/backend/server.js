@@ -35,7 +35,7 @@ app.post('/property', (req, res) => {
     let image = fs.readFile('../frontend/src/Assets/Hendon.jpg', (err,file) => {
         base64 = file.toString('base64');
 
-        let newProperty = new property({ price: 500000, bedroom: 2, location: "Hendon", propertyType: "House", contractType: 'Sale', image: base64 });
+        let newProperty = new property({ price: 500000, bedroom: 2, location: "Hendon", propertyType: "House", contractType: 'Sale', furnished: true, image: base64 });
         newProperty.save((err, property) => {
             if (err) console.error(error);
             else {
