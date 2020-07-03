@@ -5,7 +5,7 @@ import './SearchForm.scss';
 
 export default function SearchForm (props)  {
     const page = props.page;
-    const type = "sales";
+    const [ type, setType ] = useState("sales");
     
     const [ minPrice, setMinPrice ] = useState([ { minPrice: "Min Price" }, { 350000: "£350k" }, { 500000: "£500k" }, { 750000: "£750k" }, { 1000000: "£1M" }, { 2500000: "£2.5M" }, { 5000000: "£5M" }, { 7500000: "£7.5M" }, { 10000000: "£10M" }, { 12500000: "£12.5M" }, { 15000000: "£15M" } ]);
     const [ maxPrice, setMaxPrice ] = useState([{ maxPrice: "Max Price" }, { 500000: "£500k" }, { 750000: "£750k" }, { 1000000: "£1M" }, { 2500000: "£2.5M" }, { 5000000: "£5M" }, { 7500000: "£7.5M" }, { 10000000: "£10M" }, { 12500000: "£12.5M" }, { 15000000: "£15M" } ]);
@@ -18,7 +18,11 @@ export default function SearchForm (props)  {
     const [ propertyTypes, setPropertyType ] = useState([ "All", "Bungalow", "Flat", "House", "Maisonette", "New Homes", "Land" ]);
     const [ sortBy, setSortBy ] = useState([ "Most Recent", "Price (Highest)", "Price (Lowest)" ]);
 
-    console.log(minPrice);
+    // console.log(minPrice);
+
+    function handleType(type) {
+        setType(type);
+    }
     
 
     // componentDidMount () {
@@ -32,11 +36,11 @@ export default function SearchForm (props)  {
                     <div className="search_bar">
                         <div className="radio_control">
                             <input type="radio" name="listings" id="radio_buy" value="buy" checked />
-                            <label htmlFor="radio_buy">Sales</label>
+                            <label htmlFor="radio_buy" onClick={() => handleType("sales")}>Sales</label>
                         </div>
                         <div className="radio_control">
                             <input type="radio" name="listings" id="radio_rent" value="rent" />
-                            <label htmlFor="radio_rent">Lettings</label>
+                            <label htmlFor="radio_rent" onClick={() => handleType("lettings")}>Lettings</label>
                         </div>
                         <input name="s" type="text" placeholder="Search..." className="search_special" />
                         <input type="submit" value="Search" />
@@ -182,19 +186,37 @@ export default function SearchForm (props)  {
                                 </div>
                             </div>
 
-                            <div class="option_control checkbox show-for-sell">
-                                <label for="inc-offer">Include Under Offer</label>
-                                <div class="tickbox">
-                                    <input type="checkbox" name="inc-offer" value="true" />
+                            { type == "sales" ?
+
+                            <Fragment>
+                                <div className="option_control checkbox show-for-sell">
+                                    <label for="inc-offer">Include Under Offer</label>
+                                    <div className="tickbox">
+                                        <input type="checkbox" name="inc-offer" value="true" />
+                                    </div>
+                                </div>
+
+                                <div className="option_control checkbox show-for-sell">
+                                    <label for="inc-sold">Include Sold</label>
+                                    <div className="tickbox">
+                                        <input type="checkbox" name="inc-sold" value="true" />
+                                    </div>
+                                </div>
+                            </Fragment>
+                            :
+
+                            <div class="option-control show-furnished">
+                                <label for="min-price">Furnished</label>
+                                <div class="SumoSelect sumo_furnished" tabindex="0" role="button" aria-expanded="false">
+                                    <select class="select-sm SumoUnder" id="furnished" name="furnished" tabindex="-1">
+                                        <option value="all" selected="">All</option>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="option_control checkbox show-for-sell">
-                                <label for="inc-sold">Include Sold</label>
-                                <div class="tickbox">
-                                    <input type="checkbox" name="inc-sold" value="true" />
-                                </div>
-                            </div>
+                            }
 
                             <div className="option_control dual_option sortby">
                                 <label htmlFor="min-price">Sort by</label>

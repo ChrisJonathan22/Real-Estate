@@ -6,6 +6,7 @@ let propertySchema = new mongoose.Schema({
     location: String,
     propertyType: String,
     contractType: String,
+    furnished: Boolean,
     image: String
 });
 
