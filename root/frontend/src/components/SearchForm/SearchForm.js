@@ -18,16 +18,20 @@ export default function SearchForm (props)  {
     const [ propertyTypes, setPropertyType ] = useState([ "All", "Bungalow", "Flat", "House", "Maisonette", "New Homes", "Land" ]);
     const [ sortBy, setSortBy ] = useState([ "Most Recent", "Price (Highest)", "Price (Lowest)" ]);
 
-    // console.log(minPrice);
+    const [ filter, setFilter ] = useState({});
 
     function handleType(type) {
         setType(type);
     }
-    
 
-    // componentDidMount () {
-    //     getAllProperties(ALLPROPENDPOINT);
-    // }
+    function handleFilter(target) {
+        const filterName = target.name;
+        const filterValue = target.value;
+
+        setFilter({...filter, [filterName]: filterValue });
+    }
+    
+    console.log(filter);
 
         return (
             <Fragment>
@@ -50,7 +54,7 @@ export default function SearchForm (props)  {
                             <label htmlFor="min-price">Price range (&pound;)</label>
                             <div className="SumoSelect sumo_min_price" tabIndex="0" role="button" aria-expanded="false">
                                 { type === "sales" ? 
-                                    <select className="select_sm SumoUnder" id="min_price" tabIndex="1">
+                                    <select className="select_sm SumoUnder" id="min_price" tabIndex="1" name="minPrice" onChange={(e) => handleFilter(e.target)}>
                                     {
                                         minPrice.map((price) => {
                                             let value = Object.values(price)[0];
@@ -67,7 +71,7 @@ export default function SearchForm (props)  {
                                     }
                                     </select>
                                     :
-                                    <select className="select_sm SumoUnder" id="min_price" tabIndex="1">
+                                    <select className="select_sm SumoUnder" id="min_price" tabIndex="1" name="minPrice" onChange={(e) => handleFilter(e.target)}>
                                     {
                                         minPriceLettings.map((price) => {
                                             let value = Object.values(price)[0];
@@ -88,7 +92,7 @@ export default function SearchForm (props)  {
                             <div className="SumoSelect sumo_max-price" tabindex="0" role="button" aria-expanded="true">
                                 {
                                     type === "sales" ?
-                                    <select className="select-sm SumoUnder" id="max_price" name="max-price" tabindex="-1">
+                                    <select className="select-sm SumoUnder" id="max_price" name="maxPrice" tabindex="-1" onChange={(e) => handleFilter(e.target)}>
                                     {
                                         maxPrice.map((price) => {
                                             let value = Object.values(price)[0];
@@ -205,7 +209,7 @@ export default function SearchForm (props)  {
                             </Fragment>
                             :
 
-                            <div class="option-control show-furnished">
+                            <div class="option_control show-furnished">
                                 <label for="min-price">Furnished</label>
                                 <div class="SumoSelect sumo_furnished" tabindex="0" role="button" aria-expanded="false">
                                     <select class="select-sm SumoUnder" id="furnished" name="furnished" tabindex="-1">
