@@ -221,6 +221,15 @@
                     }
                 }
             }
+
+            &.show-furnished {
+                select {
+                    height: 47.50px;
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #cccccc;
+                }
+            }
         }
     }
 }
