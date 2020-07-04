@@ -37,6 +37,16 @@
             padding: 0 12px;
             position: relative;
 
+            &:nth-child(1) {
+                border-right: 1px $btnBC solid;
+            }
+
+            &:hover {
+                label {
+                    background-color: $btnBC;
+                }
+            }
+
             input[type="radio"] {
                 position: absolute;
                 width: 100%;
@@ -46,7 +56,7 @@
             }
 
             input[type="radio"]:checked+label {
-                background-color: #281004;
+                background-color: $btnBC;
             }
 
             label {
@@ -61,8 +71,7 @@
                 line-height: 60px;
                 cursor: pointer;
                 color: $white;
-                -webkit-transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
-                transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+                @include transition(background-color .5s);
             }
         }
 
@@ -73,8 +82,6 @@
         input[type="text"] {
             width: calc(100% - 200px);
             line-height: 58px;
-            // border-top: 1px solid #979797;
-            // border-bottom: 1px solid #979797;
             padding: 0 20px;
             color: $black;
 
@@ -95,9 +102,12 @@
             background-color: $btnBC;
             text-align: center;
             outline: 0;
-            -webkit-transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
-            transition: background-color 350ms cubic-bezier(0.45, 0.05, 0.55, 0.95);
+            @include transition(background-color .5s);
             cursor: pointer;
+
+            &:hover {
+                background-color: $lightBrown;
+            }
         }
     }
 

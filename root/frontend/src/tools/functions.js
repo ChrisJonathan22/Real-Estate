@@ -1,31 +1,25 @@
-import axios from 'axios';
-
-export async function getAllProperties (endpoint) {
-    // let result = await axios.get(endpoint);
-    // console.log(result);
-    console.log('Test');
-
-    async function getUser() {
-        try {
-        let result = await axios.get(endpoint);
-          console.log(result);
-        } catch (error) {
-          console.error(error);
-        }
-      }
+export function handleType(type, func) {
+  func(type);
 }
 
-// axios.get('/user', {
-//     params: {
-//       ID: 12345
-//     }
-//   })
-//   .then(function (response) {
-//     console.log(response);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   })
-//   .finally(function () {
-//     // always executed
-//   });  
+export function handleFilter(target, filter, func) {
+  const filterName = target.name;
+  let filterValue = target.value;
+
+  if (target.name === "incOffer" || target.name === "incSold") {
+      if (!target.checked) {
+          filterValue = false;
+      }
+  }
+
+  func({...filter, [filterName]: filterValue });
+}
+
+export function handleSearch(target, filter, func) {
+  const filterName = target.name;
+  const filterValue = target.value;
+
+  target.value = target.value;
+
+  func({...filter, [filterName]: filterValue });
+}
