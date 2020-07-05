@@ -1,10 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './SearchForm.scss';
 import * as utility from '../../tools/functions';
+import { ADD_FILTERS } from '../../actions/types';
+import store from '../../store';
 
 export default function SearchForm (props)  {
     const page = props.page;
-    const [ type, setType ] = useState("sales");
+    const [ type, setType ] = useState("let");
     
     const [ minPrice, setMinPrice ] = useState([ { minPrice: "Min Price" }, { 350000: "£350k" }, { 500000: "£500k" }, { 750000: "£750k" }, { 1000000: "£1M" }, { 2500000: "£2.5M" }, { 5000000: "£5M" }, { 7500000: "£7.5M" }, { 10000000: "£10M" }, { 12500000: "£12.5M" }, { 15000000: "£15M" } ]);
     const [ maxPrice, setMaxPrice ] = useState([{ maxPrice: "Max Price" }, { 500000: "£500k" }, { 750000: "£750k" }, { 1000000: "£1M" }, { 2500000: "£2.5M" }, { 5000000: "£5M" }, { 7500000: "£7.5M" }, { 10000000: "£10M" }, { 12500000: "£12.5M" }, { 15000000: "£15M" } ]);
@@ -28,20 +30,20 @@ export default function SearchForm (props)  {
                     <div className="search_bar">
                         <div className="radio_control">
                             <input type="radio" name="listings" id="radio_buy" value="buy" />
-                            <label htmlFor="radio_buy" onClick={() => utility.handleType("sales")}>Sales</label>
+                            <label htmlFor="radio_buy" onClick={(e) => utility.handleType("let", filter, setType, setFilter)}>Sales</label>
                         </div>
                         <div className="radio_control">
                             <input type="radio" name="listings" id="radio_rent" value="rent" />
-                            <label htmlFor="radio_rent" onClick={() => utility.handleType("lettings")}>Lettings</label>
+                            <label htmlFor="radio_rent" onClick={(e) => utility.handleType("rent", filter, setType, setFilter)}>Lettings</label>
                         </div>
-                        <input name="s" type="text" placeholder="Search..." className="search_special" />
-                        <input type="submit" value="Search" className="search_btn" name="areas" onKeyDown={(e) => utility.handleSearch(e.target, filter, setFilter)} />
+                        <input name="search" type="text" placeholder="Search area..." className="search_special" onKeyDown={(e) => utility.handleSearch(e.target, filter, setFilter)} />
+                        <input type="submit" value="Search" className="search_btn" onClick={() => store.dispatch({type: ADD_FILTERS, filter: filter })} />
                     </div>
                     <div className="search_options">
                         <div className="option_control dual_option">
                             <label htmlFor="min-price">Price range (&pound;)</label>
                             <div className="SumoSelect sumo_min_price" tabIndex="0" role="button" aria-expanded="false">
-                                { type === "sales" ? 
+                                { type === "let" ? 
                                     <select className="select_sm SumoUnder" id="min_price" tabIndex="1" name="minPrice" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                     {
                                         minPrice.map((price) => {
@@ -79,7 +81,7 @@ export default function SearchForm (props)  {
                             </div>
                             <div className="SumoSelect sumo_max-price" tabindex="0" role="button" aria-expanded="true">
                                 {
-                                    type === "sales" ?
+                                    type === "let" ?
                                     <select className="select-sm SumoUnder" id="max_price" name="maxPrice" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                     {
                                         maxPrice.map((price) => {
@@ -178,7 +180,7 @@ export default function SearchForm (props)  {
                                 </div>
                             </div>
 
-                            { type == "sales" ?
+                            { type == "let" ?
 
                             <Fragment>
                                 <div className="option_control checkbox show-for-sell">
