@@ -1,5 +1,6 @@
-export function handleType(type, func) {
-  func(type);
+export function handleType(type, filter, func1, func2) {
+  func1(type);
+  func2({...filter, contractType: type });
 }
 
 export function handleFilter(target, filter, func) {

@@ -1,3 +1,4 @@
 export const FETCH_PROPERTIES = 'FETCH_PROPERTIES';
 export const ADD_PROPERTIES = 'ADD_PROPERTIES';
 export const ADD_VALUE = 'ADD_VALUE';
+export const ADD_FILTERS = 'ADD_FILTERS';
