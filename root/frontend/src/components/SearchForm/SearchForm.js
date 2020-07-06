@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './SearchForm.scss';
+import { Link } from 'react-router-dom';
 import * as utility from '../../tools/functions';
 import { ADD_FILTERS } from '../../actions/types';
 import store from '../../store';
@@ -22,6 +23,8 @@ export default function SearchForm (props)  {
     const [ filter, setFilter ] = useState({});
     
     console.log(filter);
+    console.log(store.getState());
+    
 
         return (
             <Fragment>
@@ -36,8 +39,12 @@ export default function SearchForm (props)  {
                             <input type="radio" name="listings" id="radio_rent" value="rent" />
                             <label htmlFor="radio_rent" onClick={(e) => utility.handleType("rent", filter, setType, setFilter)}>Lettings</label>
                         </div>
-                        <input name="search" type="text" placeholder="Search area..." className="search_special" onKeyDown={(e) => utility.handleSearch(e.target, filter, setFilter)} />
-                        <input type="submit" value="Search" className="search_btn" onClick={() => store.dispatch({type: ADD_FILTERS, filter: filter })} />
+                        <input name="search" type="text" placeholder="Search area..." className="search_special" onKeyUp={(e) => utility.handleSearch(e.target, filter, setFilter)} />
+                        { type === "let" ?
+                            <Link  exact to="/sales"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
+                            :
+                            <Link  exact to="/lettings"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
+                        }
                     </div>
                     <div className="search_options">
                         <div className="option_control dual_option">
