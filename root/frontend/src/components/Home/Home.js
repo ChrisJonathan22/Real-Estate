@@ -10,30 +10,34 @@ import Testimonials from '../Testimonials/Testimonials';
 
 export default function Home () {
 
-const [properties, setProperties] = useState("");
+    const [properties, setProperties] = useState("");
 
-async function fetchProperties(url) {
-    try {
-        // Fetch all the properties and store them within the state
-        const response = await axios.get(url);
-        setProperties(response.data.properties);
-    } catch (error) {
-        console.log(error);
+    async function fetchProperties(url) {
+        try {
+            // Fetch all the properties and store them within the state
+            let response = await axios.get(url);
+            response = response.data.properties;
+            setProperties(response);
+        } catch (error) {
+            console.log(error);
+        }
     }
-}
 
 
-useEffect(() => {
-    // Once the component mounts fetch all the properties
-    fetchProperties('http://localhost:5000/properties');
-}, []);
+    useEffect(() => {
+        // Once the component mounts fetch all the properties
+        fetchProperties('http://localhost:5000/properties');
+    }, []);
 
-// Loop through each property within the state and store it in the store.
-for(let i = 0; i < properties.length; i++) {
-    store.dispatch({type: ADD_PROPERTIES, value: properties[i]});
-}
+    let currentProperties = store.getState();
+    currentProperties = currentProperties.properties.items;
 
-console.log('This is the store', store.getState());
+    // Add properties to the store if there aren't any 
+    if (currentProperties <= 0) {
+        for(let i = 0; i < properties.length; i++) {
+            store.dispatch({type: ADD_PROPERTIES, value: properties[i]});
+        }
+    }
 
     return (
         <Fragment>

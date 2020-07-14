@@ -22,8 +22,8 @@ export default function SearchForm (props)  {
 
     const [ filter, setFilter ] = useState({});
     
-    console.log(filter);
-    console.log(store.getState());
+    // console.log(filter);
+    // console.log(store.getState());
     
 
         return (
