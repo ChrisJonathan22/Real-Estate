@@ -9,7 +9,7 @@ export default function MenuDrawer(props) {
         <Fragment>
             <div className={`menu_drawer ${action}`}>
                 <ul>
-                    <li className="nav-item"><Link className="nav-link" exact to="/">Home</Link></li>
+                    <li className="nav-item"><Link className="nav-link" exact="true" to="/">Home</Link></li>
                     <li className="nav-item"><Link className="nav-link" to="/sales">Sales</Link></li>
                     <li className="nav-item"><Link className="nav-link" to="/lettings">Lettings</Link></li>
                     <li className="nav-item"><Link className="nav-link" to="/new-homes">New Homes</Link></li>
