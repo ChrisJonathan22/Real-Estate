@@ -41,9 +41,9 @@ export default function SearchForm (props)  {
                         </div>
                         <input name="search" type="text" placeholder="Search area..." className="search_special" onKeyUp={(e) => utility.handleSearch(e.target, filter, setFilter)} />
                         { type === "let" ?
-                            <Link  exact to="/sales"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
+                            <Link  exact="true" to="/sales"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
                             :
-                            <Link  exact to="/lettings"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
+                            <Link  exact="true" to="/lettings"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
                         }
                     </div>
                     <div className="search_options">
@@ -61,7 +61,7 @@ export default function SearchForm (props)  {
                                                 return <option className="bprice" value="0" defaultValue>{ value }</option>
                                             } else {
                                                 return (
-                                                <option className="bprice" value={ key }>{ value }</option>
+                                                <option className="bprice" value={ key } key={ key }>{ value }</option>
                                                 );
                                             }
                                         })
@@ -86,10 +86,10 @@ export default function SearchForm (props)  {
                                     </select>
                                 }
                             </div>
-                            <div className="SumoSelect sumo_max-price" tabindex="0" role="button" aria-expanded="true">
+                            <div className="SumoSelect sumo_max-price" tabIndex="0" role="button" aria-expanded="true">
                                 {
                                     type === "let" ?
-                                    <select className="select-sm SumoUnder" id="max_price" name="maxPrice" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                                    <select className="select-sm SumoUnder" id="max_price" name="maxPrice" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                     {
                                         maxPrice.map((price) => {
                                             let value = Object.values(price)[0];
@@ -99,14 +99,14 @@ export default function SearchForm (props)  {
                                                 return <option className="bprice" value="0" defaultValue>{ value }</option>
                                             } else {
                                                 return (
-                                                <option className="bprice" value={ key }>{ value }</option>
+                                                <option className="bprice" value={ key } key={ key }>{ value }</option>
                                                 );
                                             }
                                         })
                                     }
                                     </select>
                                     :
-                                    <select className="select-sm SumoUnder" id="max_price" name="maxPrice" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                                    <select className="select-sm SumoUnder" id="max_price" name="maxPrice" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                     {
                                         maxPriceLettings.map((price) => {
                                             let value = Object.values(price)[0];
@@ -129,10 +129,10 @@ export default function SearchForm (props)  {
                         <div className="option_control dual_option">
                             <label htmlFor="min-price">Bedrooms</label>
                             <div className="SumoSelect sumo_min_price" tabIndex="0" role="button" aria-expanded="false">
-                                <select className="select_sm SumoUnder" id="min-bed" name="minBed" tabindex="1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                                <select className="select_sm SumoUnder" id="min-bed" name="minBed" tabIndex="1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                     { 
                                         minBed.map((num) => {
-                                        if (num === "No Min") return <option className="bprice" value="0" defaultValue>{ num }</option>;
+                                        if (num === "No Min") return <option className="bprice" value="0" key="0" defaultValue>{ num }</option>;
                                         else {
                                         return <option className="bprice" value={ num } key={ num }>{ num }</option>
                                         }
@@ -140,11 +140,11 @@ export default function SearchForm (props)  {
                                     }
                                 </select>
                             </div>
-                            <div className="SumoSelect sumo_max-price" tabindex="0" role="button" aria-expanded="true">
-                            <select className="select_sm SumoUnder" id="max-bed" name="maxBed" tabindex="1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                            <div className="SumoSelect sumo_max-price" tabIndex="0" role="button" aria-expanded="true">
+                            <select className="select_sm SumoUnder" id="max-bed" name="maxBed" tabIndex="1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                     { 
                                         maxBed.map((num) => {
-                                        if (num === "No Max") return <option className="bprice" value="0" defaultValue>{ num }</option>;
+                                        if (num === "No Max") return <option className="bprice" value="0" key="0" defaultValue>{ num }</option>;
                                         else {
                                         return <option className="bprice" value={ num } key={ num }>{ num }</option>
                                         }
@@ -157,11 +157,11 @@ export default function SearchForm (props)  {
 
                             <div className="option_control areas">
                                 <label htmlFor="areas">Areas</label>
-                                <div className="SumoSelect sumo_areas" tabindex="0" role="button" aria-expanded="true">
-                                    <select className="select-lg SumoUnder" id="areas" name="areas" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                                <div className="SumoSelect sumo_areas" tabIndex="0" role="button" aria-expanded="true">
+                                    <select className="select-lg SumoUnder" id="areas" name="areas" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                         {
                                             areas.map((area) => {
-                                            if (area === "All") return <option value="" defaultValue>{ area }</option>
+                                            if (area === "All") return <option value="" key="0" defaultValue>{ area }</option>
                                             else {
                                             return <option value={ area } key={ area }>{ area }</option>;
                                             }
@@ -173,11 +173,11 @@ export default function SearchForm (props)  {
 
                             <div className="option_control property_type">
                                 <label htmlFor="property_types">Property</label>
-                                <div className="SumoSelect sumo_property_types" tabindex="0" role="button" aria-expanded="true">
-                                    <select className="select-lg SumoUnder" id="property_types" name="propertyTypes" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                                <div className="SumoSelect sumo_property_types" tabIndex="0" role="button" aria-expanded="true">
+                                    <select className="select-lg SumoUnder" id="property_types" name="propertyTypes" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                         {
                                             propertyTypes.map((type) => {
-                                                if (type === "All") return <option value="" defaultValue>{ type }</option>
+                                                if (type === "All") return <option value="" key="0" defaultValue>{ type }</option>
                                                 else {
                                                 return <option className="property_types-option rent-only" value={ type } key={ type }>{ type }</option>
                                                 }
@@ -191,14 +191,14 @@ export default function SearchForm (props)  {
 
                             <Fragment>
                                 <div className="option_control checkbox show-for-sell">
-                                    <label for="inc-offer">Include Under Offer</label>
+                                    <label htmlFor="inc-offer">Include Under Offer</label>
                                     <div className="tickbox">
                                         <input type="checkbox" name="incOffer" value="true" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)} />
                                     </div>
                                 </div>
 
                                 <div className="option_control checkbox show-for-sell">
-                                    <label for="inc-sold">Include Sold</label>
+                                    <label htmlFor="inc-sold">Include Sold</label>
                                     <div className="tickbox">
                                         <input type="checkbox" name="incSold" value="true" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)} />
                                     </div>
@@ -206,10 +206,10 @@ export default function SearchForm (props)  {
                             </Fragment>
                             :
 
-                            <div class="option_control show-furnished">
-                                <label for="min-price">Furnished</label>
-                                <div class="SumoSelect sumo_furnished" tabindex="0" role="button" aria-expanded="false">
-                                    <select class="select-sm SumoUnder" id="furnished" name="furnished" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                            <div className="option_control show-furnished">
+                                <label htmlFor="min-price">Furnished</label>
+                                <div className="SumoSelect sumo_furnished" tabIndex="0" role="button" aria-expanded="false">
+                                    <select className="select-sm SumoUnder" id="furnished" name="furnished" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                         <option value="all" selected="">All</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
@@ -221,8 +221,8 @@ export default function SearchForm (props)  {
 
                             <div className="option_control dual_option sortby">
                                 <label htmlFor="min-price">Sort by</label>
-                                <div className="SumoSelect sumo_sort_by" tabindex="0" role="button" aria-expanded="false">
-                                    <select className="select-sm SumoUnder" id="sort_by" name="sortBy" tabindex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
+                                <div className="SumoSelect sumo_sort_by" tabIndex="0" role="button" aria-expanded="false">
+                                    <select className="select-sm SumoUnder" id="sort_by" name="sortBy" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
                                         <option value="mostRecent">Most recent</option>
                                         <option value="price-desc">Price (highest)</option>
                                         <option value="price-asc" defaultValue>Price (lowest)</option>

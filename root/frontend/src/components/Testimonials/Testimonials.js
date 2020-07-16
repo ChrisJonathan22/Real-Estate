@@ -25,7 +25,7 @@ export default function Testimonials () {
             <h2 className="title">Testimonials</h2>
             <Slider {...carouselSettings}>
             { counter.map((item, index) => {
-                return <div>
+                return <div key={ index }>
                     <p className="testimonial">"{ testimonial.content }"</p>
                     <p className="author">- { testimonial.author }</p>
                 </div>
