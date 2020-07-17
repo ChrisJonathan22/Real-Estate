@@ -7,6 +7,8 @@ import Lettings from './components/Lettings/Lettings';
 import NewHomes from './components/NewHomes/NewHomes';
 import Contact from './components/Contact/Contact';
 import Info from './components/Info/Info';
+import Form from './components/Form/Form';
+import Testimonial from './components/Testimonials/Testimonials';
 import Footer from './components/Footer/Footer';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -24,12 +26,10 @@ function App() {
             <Route exact path = '/new-homes' component = {NewHomes} />
             <Route exact path = '/contact' component = {Contact} />
             <Route exact path = '/info' component = {Info} />
-
-
-            {/* <Route exact path = '/properties' component = { Properties } /> */}
-            {/* <Route exact path = '/property' component = { Property } /> */}
           </Switch>
         </React.Fragment>
+        <Form />
+        <Testimonial />
         <Footer />
       </BrowserRouter>
     </Provider>  
