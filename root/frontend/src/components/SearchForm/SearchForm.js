@@ -187,7 +187,7 @@ export default function SearchForm (props)  {
                                 </div>
                             </div>
 
-                            { type == "let" ?
+                            { type === "let" ?
 
                             <Fragment>
                                 <div className="option_control checkbox show-for-sell">
