@@ -4,7 +4,7 @@ import Spinner from '../Spinner/Spinner';
 import store from '../../store';
 
 export default function HomeProperties () {
-    let properties = [];
+    let properties;
     properties = store.getState().properties.items;
     return (
         <Fragment>
