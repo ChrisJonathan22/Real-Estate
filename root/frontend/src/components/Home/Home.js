@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import HomeHero from '../HomeHero/HomeHero';
+import Hero from '../Hero/Hero';
+import hero_image from '../../Assets/home_hero.jpg';
 import store from '../../store';
 import { ADD_PROPERTIES } from '../../actions/types';
 import axios from 'axios';
@@ -41,7 +42,7 @@ export default function Home () {
 
     return (
         <Fragment>
-            <HomeHero />
+            <Hero page='home' image={hero_image} />
             <ContentSection />
             <HomeProperties />
             <Form />
