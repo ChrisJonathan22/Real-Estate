@@ -6,7 +6,7 @@ export default class Sales extends Component {
     render() {
         return (
             <Fragment>
-                <Hero page='sales' image={sales_hero} title="Sales" />
+                <Hero page='sales' image={sales_hero} title="To Buy" />
             </Fragment>
         )
     }
