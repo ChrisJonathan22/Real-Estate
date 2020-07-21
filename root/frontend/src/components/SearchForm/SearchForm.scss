@@ -14,7 +14,16 @@
     background-color: $white;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
 
-    // display: none;
+    @include respond-above(xs) {
+        padding: 44px 20px 43px;
+        height: auto;
+        bottom: auto;
+    }
+
+    @include respond-above(sm) {
+        height: auto;
+        bottom: -230px;
+    }
 
     .search_form_title {
         font-size: 25px;
@@ -31,11 +40,22 @@
         width: 100%;
         border: 1px $lightGrey solid;
 
+        @include respond-above(xs) {
+            display: initial;
+            border: 0;
+        }
+    
+
         .radio_control {
             height: 60px;
             width: 80px;
             padding: 0 12px;
             position: relative;
+
+            @include respond-above(xs) {
+                display: inline-block;
+            }
+        
 
             &:nth-child(1) {
                 border-right: 1px $btnBC solid;
@@ -77,6 +97,12 @@
 
         .search_special {
             border: 0;
+
+            @include respond-above(xs) {
+                width: 100% !important;
+                border: 1px $lightGrey solid;
+            }
+        
         }
 
         input[type="text"] {
@@ -108,6 +134,11 @@
             &:hover {
                 background-color: $lightBrown;
             }
+
+            @include respond-above(xs) {
+                margin-top: 0.4em;
+            }
+        
         }
     }
 
@@ -144,24 +175,17 @@
             }
 
             .SumoSelect {
-                // width: calc(50% - 5px);
                 display: inline-block;
                 position: relative;
                 outline: none;
 
                 .SumoUnder {
-                    // position: absolute;
                     top: 0;
                     right: 0;
                     left: 0;
                     height: 100%;
                     width: 100%;
-                    // border: none;
                     box-sizing: border-box;
-
-                    .SelectBox {
-
-                    }
                 }
 
                 select {
@@ -180,7 +204,6 @@
         }
         
         .option_control {
-            // display: none;
             label {
                 white-space: nowrap;
                 font-weight: 600;
