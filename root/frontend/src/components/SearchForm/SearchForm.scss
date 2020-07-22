@@ -14,6 +14,7 @@
     background-color: $white;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.4);
 
+
     @include respond-above(xs) {
         padding: 44px 20px 43px;
         height: auto;
@@ -21,8 +22,22 @@
     }
 
     @include respond-above(sm) {
-        height: auto;
-        bottom: -230px;
+        height: 330px;
+        @include transition(height .8s);
+        overflow: hidden;
+
+        .search_options {
+            display: none !important;
+        }
+
+        &.showOptions {
+            height: 830px;
+            @include transition(height .8s);
+
+            .search_options {
+                display: flex !important;
+            }
+        }
     }
 
     .search_form_title {
@@ -43,8 +58,37 @@
         @include respond-above(xs) {
             display: initial;
             border: 0;
+
+            .search-more {
+                display: initial !important;
+                margin-left: 35px;
+                color: $btnTextColor;
+                font-size: 14px;
+                background-color: transparent;
+                border: none;
+                line-height: 32px;
+                padding-right: 30px;
+                outline: 0;
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid $lightGrey;
+                    right: 12px;
+                    top: 17px;
+                }
+            }
         }
     
+        .search-more {
+            display: none;
+        }
 
         .radio_control {
             height: 60px;

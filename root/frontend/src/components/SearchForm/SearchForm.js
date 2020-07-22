@@ -24,6 +24,11 @@ export default function SearchForm (props)  {
     
     // console.log(filter);
     // console.log(store.getState());
+
+    function showOptions() {
+        const formContainer = document.querySelector('.search_form_container');
+        formContainer.classList.toggle('showOptions');
+    }
     
 
         return (
@@ -45,6 +50,7 @@ export default function SearchForm (props)  {
                             :
                             <Link  exact="true" to="/lettings"><input type="submit" value="Search" className="search_btn" onClick={ () => store.dispatch({type: ADD_FILTERS, filter: filter }) } /></Link>
                         }
+                        <button type="button" className="search-more" onClick={showOptions}>More Options</button>
                     </div>
                     <div className="search_options">
                         <div className="option_control dual_option">
