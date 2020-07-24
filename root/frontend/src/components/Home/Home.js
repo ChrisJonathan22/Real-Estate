@@ -45,8 +45,6 @@ export default function Home () {
             <Hero page='home' image={hero_image} />
             <ContentSection />
             <HomeProperties />
-            <Form />
-            <Testimonials />
         </Fragment>
     )
 };
