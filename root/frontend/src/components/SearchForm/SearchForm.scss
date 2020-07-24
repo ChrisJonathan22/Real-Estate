@@ -41,6 +41,22 @@
         }
     }
 
+    &.sales {
+        .radio_control {
+            &.let_btn {
+                display: none;
+            }
+        }
+    }
+
+    &.lets {
+        .radio_control {
+            &.sales_btn {
+                display: none;
+            }
+        }
+    }
+
     .search_form_title {
         font-size: 25px;
         letter-spacing: 1.67px;
