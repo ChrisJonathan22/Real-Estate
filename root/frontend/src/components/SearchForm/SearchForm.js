@@ -216,7 +216,7 @@ export default function SearchForm (props)  {
                                 <label htmlFor="min-price">Furnished</label>
                                 <div className="SumoSelect sumo_furnished" tabIndex="0" role="button" aria-expanded="false">
                                     <select className="select-sm SumoUnder" id="furnished" name="furnished" tabIndex="-1" onChange={(e) => utility.handleFilter(e.target, filter, setFilter)}>
-                                        <option value="all" selected="">All</option>
+                                        <option value="all" defaultValue>All</option>
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>

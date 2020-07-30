@@ -1,18 +1,30 @@
-import React , { Fragment, useState, useEffect } from 'react';
-import './HomeProperties.scss';
+import React, { Fragment, useState, useEffect } from 'react';
 import { fetchProperties } from '../../tools/functions';
+import { ADD_PROPERTIES } from '../../actions/types';
 import currencyFormatter from '../../tools/currencyFormatter';
 import Spinner from '../Spinner/Spinner';
 import store from '../../store';
 
-export default function HomeProperties () {
-
+export default function FilteredProperties () {
     const [properties, setProperties] = useState("");
 
     useEffect(() => {
         // Once the component mounts fetch all the properties
         fetchProperties('http://localhost:5000/properties', setProperties);
     }, []);
+
+    let currentProperties = store.getState();
+    currentProperties = currentProperties.properties.items;
+
+
+    // Add properties to the store if there aren't any 
+    if (currentProperties <= 0) {
+        for(let i = 0; i < properties.length; i++) {
+            store.dispatch({type: ADD_PROPERTIES, value: properties[i]});
+        }
+    }
+
+    console.log('This is the store from the filtered properties component', store.getState());
 
     return (
         <Fragment>
