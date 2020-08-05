@@ -9,12 +9,12 @@ export default function Sales () {
     const [ filters, setFilters ] = useState();
 
     // store.subscribe(() => console.log(store.getState()));
-    // console.log(store.getState());
+    console.log(store.getState());
 
     return (
         <Fragment>
-            <Hero page='sales' image={sales_hero} title="To Buy" />
-            <FilteredProperties />
+            <Hero page="sales" image={sales_hero} title="To Buy" />
+            <FilteredProperties contractType="Sale" />
         </Fragment>
     )
 }
