@@ -4,7 +4,6 @@ import hero_image from '../../Assets/home_hero.jpg';
 import store from '../../store';
 import { fetchProperties } from '../../tools/functions';
 import { ADD_PROPERTIES } from '../../actions/types';
-import axios from 'axios';
 import ContentSection from '../ContentSection/ContentSection';
 import HomeProperties from '../HomeProperties/HomeProperties';
 

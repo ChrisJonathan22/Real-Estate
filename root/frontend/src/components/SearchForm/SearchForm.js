@@ -81,10 +81,10 @@ export default function SearchForm (props)  {
                                             let key = Object.keys(price)[0];
 
                                             if (key === "Min Price") {
-                                                return <option className="bprice" value="0" defaultValue>{ value }</option>
+                                                return <option className="bprice" value="0" defaultValue key = { key }>{ value }</option>
                                             } else {
                                                 return (
-                                                <option className="bprice" value={ key }>{ value }</option>
+                                                <option className="bprice" value={ key } key = { key }>{ value }</option>
                                                 );
                                             }
                                         })
