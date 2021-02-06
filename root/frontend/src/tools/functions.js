@@ -22,8 +22,6 @@ export function handleSearch(target, filter, func) {
   const filterName = target.name;
   const filterValue = target.value;
 
-  target.value = target.value;
-
   func({...filter, [filterName]: filterValue });
 }
 

@@ -3,7 +3,6 @@ import './HomeProperties.scss';
 import { fetchProperties } from '../../tools/functions';
 import currencyFormatter from '../../tools/currencyFormatter';
 import Spinner from '../Spinner/Spinner';
-import store from '../../store';
 
 export default function HomeProperties () {
 
@@ -18,7 +17,7 @@ export default function HomeProperties () {
         <Fragment>
             <div className="grid r__container">
                 {
-                    properties.length > 0  ? properties.map((property, index) => {
+                    properties.length ? properties.map((property, index) => {
                         const price = currencyFormatter.format(property.price);
                         if (index <= 4) return ( 
                             <a href="#" key={ index } className="grid__item" style={{ backgroundImage: `url(data:image/png;base64,${property.image})` }}>
