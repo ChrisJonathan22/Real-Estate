@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://chris:chris22@realestate.7fgke.mongodb.net/realestate?retryWrites=true&w=majority', { useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_ATLAS_CONNECTION_STRING, { useUnifiedTopology: true });
 
 const connect = mongoose.connection;   
 
