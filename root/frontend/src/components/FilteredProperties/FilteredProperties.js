@@ -18,6 +18,19 @@ export default function FilteredProperties (props) {
     let state = store.getState();
     let currentProperties = state.properties.items;
     let filter = state.properties.filter;
+    
+
+    if (properties.length > 0 && Object.keys(filter).length > 0) {
+        //properties = properties.filter()
+        console.log("We have properties and filters");
+        console.log(filter);
+        // properties = properties.filter((property) => {
+
+        // });
+    }
+
+    
+
 
     // Add properties to the store if there aren't any 
     if (currentProperties <= 0) {
